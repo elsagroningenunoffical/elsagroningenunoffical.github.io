@@ -1,6 +1,6 @@
 {
-    "name": "Digital Pass",
-    "short_name": "Pass",
+    "name": "Elsa Digital Pass",
+    "short_name": "ElsaPass",
     "description": "Your digital membership pass",
     "start_url": "/index.html",
     "display": "standalone",

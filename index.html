@@ -144,7 +144,7 @@
         <div>
             <div class="pass-container">
                 <div class="pass-header">
-                    <div class="logo">DP</div>
+                    <div class="logo" id="logo">DP</div>
                     <h1 style="padding-left: 3rem;">ELSA Groningen</h1>
                 </div>
                 <div class="pass-content">
@@ -208,12 +208,21 @@
             if (newValue !== null && newValue.trim() !== '') {
                 element.innerText = newValue;
                 saveToLocalStorage();
+
+                if (fieldId === 'nameValue') {
+                    updateLogoInitials(newValue);
+                }
                 
                 // If membership ID changed, regenerate QR code
                 if (fieldId === 'membershipValue') {
                     generateQR();
                 }
             }
+        }
+
+        function updateLogoInitials(name) {
+            const initials = name.split(' ').map(word => word.charAt(0).toUpperCase()).join('');
+            document.getElementById('logo').innerText = initials;
         }
         
         // Generate random 10-digit membership ID
@@ -242,6 +251,7 @@
                 document.getElementById("nameValue").innerText = passData.name;
                 document.getElementById("membershipValue").innerText = passData.membership;
                 document.getElementById("expiryValue").innerText = passData.expiry;
+                updateLogoInitials(passData.name);
             } else {
                 // Generate random membership ID for new users
                 document.getElementById("membershipValue").innerText = generateMembershipId();

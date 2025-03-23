@@ -58,13 +58,15 @@
             left: 20px;
             width: 40px;
             height: 40px;
-            background-color: white;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             font-weight: bold;
             color: #3498db;
+            background-image: url("logowhite.png");
+            background-image: url("logowhite.png");
+            background-size: contain;
         }
         
         .pass-content {
@@ -144,7 +146,7 @@
         <div>
             <div class="pass-container">
                 <div class="pass-header">
-                    <div class="logo" id="logo">DP</div>
+                    <div class="logo" id="logo"></div>
                     <h1 style="padding-left: 3rem;">ELSA Groningen</h1>
                 </div>
                 <div class="pass-content">
@@ -210,7 +212,7 @@
                 saveToLocalStorage();
 
                 if (fieldId === 'nameValue') {
-                    updateLogoInitials(newValue);
+                    //updateLogoInitials(newValue);
                 }
                 
                 // If membership ID changed, regenerate QR code
@@ -220,10 +222,10 @@
             }
         }
 
-        function updateLogoInitials(name) {
-            const initials = name.split(' ').map(word => word.charAt(0).toUpperCase()).join('');
-            document.getElementById('logo').innerText = initials;
-        }
+        //function updateLogoInitials(name) {
+          //  const initials = name.split(' ').map(word => word.charAt(0).toUpperCase()).join('');
+            //document.getElementById('logo').innerText = initials;
+        //}
         
         // Generate random 10-digit membership ID
         function generateMembershipId() {
@@ -251,7 +253,7 @@
                 document.getElementById("nameValue").innerText = passData.name;
                 document.getElementById("membershipValue").innerText = passData.membership;
                 document.getElementById("expiryValue").innerText = passData.expiry;
-                updateLogoInitials(passData.name);
+                //updateLogoInitials(passData.name);
             } else {
                 // Generate random membership ID for new users
                 document.getElementById("membershipValue").innerText = generateMembershipId();

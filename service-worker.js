@@ -1,5 +1,5 @@
 // service-worker.js
-const CACHE_NAME = 'digital-pass-v1';
+const CACHE_NAME = 'digital-pass-v2';
 const urlsToCache = [
   '/',
   '/index.html',
